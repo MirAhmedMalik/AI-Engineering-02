@@ -1,0 +1,5 @@
+model,model_id,backend,category,move_limit,trials,solved,success_rate,avg_latency_ms,median_latency_ms,p95_latency_ms,avg_live_latency_ms,avg_cache_response_ms,live_moves,cached_moves,api_calls,cache_hits,failed_requests,avg_decision_ms,avg_total_time_s,sum_total_time_s,avg_solved_time_s,avg_moves,total_moves,avg_moves_solved,mean_gap,gap_kind,optimal_solves,invalid_outputs,timeouts,http_errors,retries,avg_confidence,cost_usd
+,clef-flash,ollama,decision,20,1,0,0.0,,,,,,0,0,2,0,2,,185.26,185.26,,0.0,0,,,exact,0,0,0,2,1,,0.0
+,qwen3:4b,ollama,llm,20,1,0,0.0,48599.2,51289.9,94284.0,19238.4,4.236,7,13,7,13,0,6739.1,134.79,134.79,,20.0,20,,,exact,0,0,0,0,0,,0.0
+,deepseek-r1:1.5b,ollama,llm,20,1,0,0.0,173307.3,173307.3,212713.7,,2.552,0,2,2,2,2,3.5,1201.06,1201.06,,2.0,2,,,exact,0,0,2,0,1,,0.0
+,gemma3:4b,ollama,llm,20,1,0,0.0,55317.2,38049.4,131119.0,26218.7,2.327,11,9,11,9,0,14426.5,288.55,288.55,,20.0,20,,,exact,0,0,0,0,0,,0.0

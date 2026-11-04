@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rubik's Cube Race</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 3'%3E%3Crect width='3' height='3' fill='%23161b20'/%3E%3Cg%3E%3Crect x='.1' y='.1' width='.8' height='.8' fill='%23ffd60a'/%3E%3Crect x='1.1' y='.1' width='.8' height='.8' fill='%232f9e50'/%3E%3Crect x='2.1' y='.1' width='.8' height='.8' fill='%23c8282d'/%3E%3Crect x='.1' y='1.1' width='.8' height='.8' fill='%231e5fb5'/%3E%3Crect x='1.1' y='1.1' width='.8' height='.8' fill='%23f6f6f2'/%3E%3Crect x='2.1' y='1.1' width='.8' height='.8' fill='%23f07f00'/%3E%3Crect x='.1' y='2.1' width='.8' height='.8' fill='%23c8282d'/%3E%3Crect x='1.1' y='2.1' width='.8' height='.8' fill='%23ffd60a'/%3E%3Crect x='2.1' y='2.1' width='.8' height='.8' fill='%232f9e50'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- Identity bar: always on screen, also above the statistics slide. Required for the screen recording. -->
+<header id="idbar" role="banner">
+  <div class="idbar-title">
+    <strong>Rubik's Cube Race</strong>
+    <span>AI Engineering, Assignment 02</span>
+  </div>
+  <div class="idbar-student" id="student" aria-live="polite">
+    <span class="student-name" id="studentName"></span>
+    <span class="student-roll">Roll no. <b id="studentRoll"></b></span>
+    <button type="button" id="editStudent" class="ghost" title="Edit name and roll number">Edit</button>
+  </div>
+</header>
+
+<div id="modeBanner" class="mode-banner" hidden></div>
+
+<main id="app">
+  <section class="controls" aria-label="Benchmark controls">
+    <div class="field">
+      <label for="backend">Models run on</label>
+      <select id="backend">
+        <option value="simulated">Practice (simulated, free)</option>
+        <option value="ollama">Ollama (local, free)</option>
+        <option value="openrouter">OpenRouter (REAL, limited)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="testSet">Test set</label>
+      <select id="testSet"></select>
+    </div>
+    <div class="field narrow">
+      <label for="numPuzzles">Puzzles</label>
+      <input id="numPuzzles" type="number" min="1" max="200" value="5">
+    </div>
+    <div class="field narrow">
+      <label for="repeats">Repeats</label>
+      <input id="repeats" type="number" min="1" max="20" value="1">
+    </div>
+    <div class="field narrow">
+      <label for="seed">Seed</label>
+      <input id="seed" type="number" value="42">
+    </div>
+    <div class="field narrow">
+      <label for="pause" title="Pause between races so you can see the result">Pause (s)</label>
+      <input id="pause" type="number" min="0" max="60" step="1" value="5">
+    </div>
+    <fieldset class="field models" id="modelPick">
+      <legend>Models</legend>
+    </fieldset>
+    <div class="actions">
+      <button type="button" id="btnScramble" class="secondary">New scramble</button>
+      <button type="button" id="btnRun" class="primary">Run benchmark</button>
+      <button type="button" id="btnStop" class="danger" disabled>Stop</button>
+      <button type="button" id="btnReset" class="ghost" title="Clears only the practice counters and practice cache" hidden>Reset practice counters</button>
+    </div>
+    <div class="actions minor">
+      <button type="button" id="btnView" class="ghost">Show unfolded net</button>
+      <button type="button" id="btnSlide" class="ghost" title="Shortcut: S">Statistics slide</button>
+      <label class="check"><input type="checkbox" id="autoSlide" checked> Open slide at the end</label>
+      <label class="check"><input type="checkbox" id="parallel" checked> Race at the same time</label>
+    </div>
+  </section>
+
+  <section class="usage" id="usagePanel" aria-label="Request usage" aria-live="polite"></section>
+
+  <section class="puzzle-info" id="puzzleInfo" aria-live="polite">
+    <div class="pi-main">
+      <span class="pi-progress" id="piProgress">Ready</span>
+      <span class="pi-scramble" id="piScramble"></span>
+    </div>
+    <div class="pi-facts" id="piFacts"></div>
+  </section>
+
+  <section class="lanes" id="lanes" aria-label="Models playing"></section>
+
+  <section class="dashboard" id="dashboardSection">
+    <div class="dash-head">
+      <h2>Benchmark dashboard</h2>
+      <div class="dash-tools">
+        <label for="savedRuns" class="sr-only">Saved runs</label>
+        <select id="savedRuns"><option value="">Open a saved run</option></select>
+        <button type="button" id="btnOpenSaved" class="secondary">Open</button>
+      </div>
+    </div>
+    <div id="dashboard" class="dash-body"><p class="empty">No results yet. Press <b>Run benchmark</b> to start.</p></div>
+  </section>
+</main>
+
+<!-- Statistics slide (last part of the recording) -->
+<div id="slide" class="slide" hidden role="dialog" aria-modal="true" aria-label="Statistical benchmarks">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <h1>Statistical benchmarks</h1>
+      <button type="button" id="closeSlide" class="secondary">Back to the race (Esc)</button>
+    </div>
+    <div id="slideBody"></div>
+  </div>
+</div>
+
+<dialog id="studentDlg">
+  <form method="dialog" id="studentForm">
+    <h2>Your details</h2>
+    <p class="hint">They stay visible on screen for the whole demo and are saved with the results.</p>
+    <label for="inName">Name</label>
+    <input id="inName" autocomplete="name" required>
+    <label for="inRoll">Roll number</label>
+    <input id="inRoll" required>
+    <div class="dlg-actions">
+      <button type="button" id="dlgCancel" class="secondary">Cancel</button>
+      <button type="submit" class="primary">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" role="status" hidden></div>
+
+<script src="/static/cube.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

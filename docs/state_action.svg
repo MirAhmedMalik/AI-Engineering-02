@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-label="State and action loop of the cube game">
+  <style>
+    text { font-family: "Segoe UI", Helvetica, Arial, sans-serif; fill: #14202a; }
+    .h { font-size: 15px; font-weight: 700; }
+    .s { font-size: 12.5px; }
+    .m { font-family: Consolas, "Courier New", monospace; font-size: 11.5px; }
+    .t { font-size: 19px; font-weight: 700; }
+    .box { fill: #ffffff; stroke: #14202a; stroke-width: 1.6; }
+    .state { fill: #e8f1ff; stroke: #1a3f94; stroke-width: 1.8; }
+    .act { fill: #fff3d6; stroke: #8a5a00; stroke-width: 1.8; }
+    .stop { fill: #fbe6e4; stroke: #b3261e; stroke-width: 1.4; }
+    .ok { fill: #e2f3e9; stroke: #14733f; stroke-width: 1.4; }
+    .arrow { stroke: #14202a; stroke-width: 1.8; fill: none; marker-end: url(#a); }
+    .loop { stroke: #1a3f94; stroke-width: 2; fill: none; stroke-dasharray: 6 4; marker-end: url(#b); }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#14202a"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a3f94"/></marker>
+  </defs>
+  <rect width="960" height="440" fill="#f7f9f8"/>
+  <text class="t" x="24" y="34">One turn of the game: state in, action out</text>
+
+  <!-- state -->
+  <rect class="state" x="24" y="64" width="260" height="170" rx="10"/>
+  <text class="h" x="40" y="90">State  s(t)</text>
+  <text class="s" x="40" y="113">cube_facelets: 54 letters</text>
+  <text class="m" x="40" y="132">U(9) R(9) F(9) D(9) L(9) B(9)</text>
+  <text class="m" x="40" y="150">solved = UUUUUUUUU RRRRRRRRR ...</text>
+  <text class="s" x="40" y="174">recent_moves: last 6 moves played</text>
+  <text class="s" x="40" y="194">moves made, moves left (max 20)</text>
+  <text class="s" x="40" y="214">same payload for every model</text>
+
+  <!-- model -->
+  <rect class="box" x="352" y="64" width="256" height="170" rx="10"/>
+  <text class="h" x="368" y="90">Model decides</text>
+  <text class="s" x="368" y="113">Decision models (Jev, Luna, Clef)</text>
+  <text class="m" x="368" y="130">POST /api/alpha/decisions</text>
+  <text class="m" x="368" y="146">one "choice" question</text>
+  <text class="s" x="368" y="172">Frontier LLM (Claude Haiku)</text>
+  <text class="m" x="368" y="189">POST /api/v1/chat/completions</text>
+  <text class="m" x="368" y="205">reply: {"move": "R'"}</text>
+  <text class="s" x="368" y="224">up to 2 attempts per move</text>
+
+  <!-- action -->
+  <rect class="act" x="676" y="64" width="260" height="170" rx="10"/>
+  <text class="h" x="692" y="90">Action  a(t)</text>
+  <text class="s" x="692" y="113">exactly one of 18 moves:</text>
+  <text class="m" x="692" y="136">U  U'  U2   R  R'  R2</text>
+  <text class="m" x="692" y="154">F  F'  F2   D  D'  D2</text>
+  <text class="m" x="692" y="172">L  L'  L2   B  B'  B2</text>
+  <text class="s" x="692" y="196">checked against the list, exactly</text>
+  <text class="s" x="692" y="214">as written. Bad output is counted.</text>
+
+  <path class="arrow" d="M284,149 L350,149"/>
+  <path class="arrow" d="M608,149 L674,149"/>
+
+  <!-- engine -->
+  <rect class="box" x="352" y="290" width="256" height="120" rx="10"/>
+  <text class="h" x="368" y="316">Cube engine (the same for all)</text>
+  <text class="s" x="368" y="338">apply the move to the 54 facelets</text>
+  <text class="s" x="368" y="357">new state s(t+1)</text>
+  <text class="s" x="368" y="376">all six faces one colour?</text>
+  <text class="s" x="368" y="395">then the puzzle is solved</text>
+
+  <path class="arrow" d="M720,234 L720,262 L560,262 L560,288"/>
+  <path class="arrow" d="M610,350 L674,350"/>
+  <path class="loop" d="M352,350 L154,350 L154,236"/>
+  <text class="s" x="168" y="322" style="fill:#1a3f94">not solved, moves left:</text>
+  <text class="s" x="168" y="338" style="fill:#1a3f94">ask the model again</text>
+
+  <!-- end conditions -->
+  <rect class="ok" x="676" y="290" width="260" height="30" rx="6"/>
+  <text class="s" x="690" y="310">Solved: success, count moves</text>
+  <rect class="stop" x="676" y="326" width="260" height="30" rx="6"/>
+  <text class="s" x="690" y="346">20 moves used: unsuccessful</text>
+  <rect class="stop" x="676" y="362" width="260" height="30" rx="6"/>
+  <text class="s" x="690" y="382">time limit reached: unsuccessful</text>
+  <rect class="stop" x="676" y="398" width="260" height="30" rx="6"/>
+  <text class="s" x="690" y="418">no valid move after 2 tries: error</text>
+</svg>

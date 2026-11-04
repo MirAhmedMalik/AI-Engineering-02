@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "backend": "ollama",
+  "total_requests": 0,
+  "total_failed": 0,
+  "cache_hits": 0,
+  "total_cost_usd": 0.0,
+  "assumed_cost_usd": 0.0,
+  "created_at": "2026-11-04T15:32:01.209",
+  "updated_at": "2026-11-04T15:32:01.209",
+  "models": {}
+}

@@ -1,0 +1,28 @@
+# secrets
+.env
+.env.*
+!.env.example
+*.key
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# temporary recording files
+demo/_rec/
+
+# practice data (not real): never submit it
+data/simulated/
+
+# NOTE: results/, demo/ and data/openrouter + data/ollama are NOT ignored: the submission needs them in the repo
+# (the cache and the request counters are part of the assignment). They contain no key.

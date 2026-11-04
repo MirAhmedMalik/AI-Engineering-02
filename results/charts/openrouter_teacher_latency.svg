@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 208" width="720" height="208" role="img" aria-label="Average latency per move (lower is faster)">
+<style>text{font-family:Segoe UI,Helvetica,Arial,sans-serif;fill:#14202a}.t{font-size:18px;font-weight:700}.l{font-size:14px}.v{font-size:14px;font-weight:700}.n{font-size:12px;fill:#55636d}</style>
+<rect width="720" height="208" fill="#ffffff"/>
+<text class="t" x="16" y="30">Average latency per move (lower is faster)</text>
+<text class="l" x="16" y="71">Jev 1.13</text>
+<rect x="200" y="54" width="410" height="24" rx="4" fill="#e8ecea"/>
+<rect x="200" y="54" width="46.6" height="24" rx="4" fill="#7B3FE4"/>
+<text class="v" x="620" y="71">767 ms</text>
+<text class="l" x="16" y="107">GPT-6 Luna Decisions</text>
+<rect x="200" y="90" width="410" height="24" rx="4" fill="#e8ecea"/>
+<rect x="200" y="90" width="39.4" height="24" rx="4" fill="#0E8F6A"/>
+<text class="v" x="620" y="107">649 ms</text>
+<text class="l" x="16" y="143">Cloudflare Clef</text>
+<rect x="200" y="126" width="410" height="24" rx="4" fill="#e8ecea"/>
+<rect x="200" y="126" width="77.8" height="24" rx="4" fill="#E8710A"/>
+<text class="v" x="620" y="143">1.28 s</text>
+<text class="l" x="16" y="179">Claude Haiku 5.5</text>
+<rect x="200" y="162" width="410" height="24" rx="4" fill="#e8ecea"/>
+<rect x="200" y="162" width="410.0" height="24" rx="4" fill="#B4472B"/>
+<text class="v" x="620" y="179">6.75 s</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 222" width="720" height="222" role="img" aria-label="Optimality gap, solved puzzles (0 is optimal)">
+<style>text{font-family:Segoe UI,Helvetica,Arial,sans-serif;fill:#14202a}.t{font-size:18px;font-weight:700}.l{font-size:14px}.v{font-size:14px;font-weight:700}.n{font-size:12px;fill:#55636d}</style>
+<rect width="720" height="222" fill="#ffffff"/>
+<text class="t" x="16" y="30">Optimality gap, solved puzzles (0 is optimal)</text>
+<text class="l" x="16" y="71">Clef (Ollama)</text>
+<rect x="200" y="54" width="410" height="24" rx="4" fill="#e8ecea"/>
+<text class="v" x="620" y="71">n/a</text>
+<text class="l" x="16" y="107">Qwen (Ollama)</text>
+<rect x="200" y="90" width="410" height="24" rx="4" fill="#e8ecea"/>
+<text class="v" x="620" y="107">n/a</text>
+<text class="l" x="16" y="143">DeepSeek (Ollama)</text>
+<rect x="200" y="126" width="410" height="24" rx="4" fill="#e8ecea"/>
+<text class="v" x="620" y="143">n/a</text>
+<text class="l" x="16" y="179">Gemma (Ollama)</text>
+<rect x="200" y="162" width="410" height="24" rx="4" fill="#e8ecea"/>
+<text class="v" x="620" y="179">n/a</text>
+<text class="n" x="16" y="214">Gap = model moves minus the shortest solution. Models without a solved puzzle have no bar.</text>
+</svg>

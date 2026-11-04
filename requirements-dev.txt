@@ -1,0 +1,6 @@
+-r requirements.txt
+pytest>=8.0
+# only for scripts/record_demo.py (automatic screen recording):
+playwright>=1.45
+# optional: near-optimal reference solutions for the 15-20 turn extension set
+# kociemba>=1.2

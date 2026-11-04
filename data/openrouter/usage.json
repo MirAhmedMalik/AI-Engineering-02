@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "backend": "openrouter",
+  "total_requests": 58,
+  "total_failed": 3,
+  "cache_hits": 1,
+  "total_cost_usd": 0.00794025,
+  "assumed_cost_usd": 0.0,
+  "created_at": "2026-11-04T15:32:01.206",
+  "updated_at": "2026-11-04T15:37:15.302",
+  "models": {
+    "luna": {
+      "model_id": "openai/gpt-6-luna-decisions",
+      "requests": 13,
+      "failed": 2,
+      "cache_hits": 1,
+      "cost_usd": 0.000803,
+      "live_ms_total": 8183.27,
+      "last_request_at": "2026-11-04T15:36:43.628",
+      "max_cost_usd": 7.36e-05
+    },
+    "jev": {
+      "model_id": "typesafe/jev-1.13",
+      "requests": 20,
+      "failed": 0,
+      "cache_hits": 0,
+      "cost_usd": 0.00092611,
+      "live_ms_total": 15336.42,
+      "last_request_at": "2026-11-04T15:36:51.020",
+      "max_cost_usd": 4.662e-05
+    },
+    "clef": {
+      "model_id": "cloudflare/clef",
+      "requests": 20,
+      "failed": 0,
+      "cache_hits": 0,
+      "cost_usd": 0.00410754,
+      "live_ms_total": 25620.15,
+      "last_request_at": "2026-11-04T15:37:01.370",
+      "max_cost_usd": 0.00023184
+    },
+    "opus": {
+      "model_id": "anthropic/claude-haiku-5.5",
+      "requests": 5,
+      "failed": 1,
+      "cache_hits": 0,
+      "cost_usd": 0.0021036,
+      "live_ms_total": 28990.78,
+      "last_request_at": "2026-11-04T15:37:08.168",
+      "max_cost_usd": 0.0006675
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 208" width="720" height="208" role="img" aria-label="Average latency per move (lower is faster)">
+<style>text{font-family:Segoe UI,Helvetica,Arial,sans-serif;fill:#14202a}.t{font-size:18px;font-weight:700}.l{font-size:14px}.v{font-size:14px;font-weight:700}.n{font-size:12px;fill:#55636d}</style>
+<rect width="720" height="208" fill="#ffffff"/>
+<text class="t" x="16" y="30">Average latency per move (lower is faster)</text>
+<text class="l" x="16" y="71">Clef (Ollama)</text>
+<rect x="200" y="54" width="410" height="24" rx="4" fill="#e8ecea"/>
+<text class="v" x="620" y="71">n/a</text>
+<text class="l" x="16" y="107">Qwen (Ollama)</text>
+<rect x="200" y="90" width="410" height="24" rx="4" fill="#e8ecea"/>
+<rect x="200" y="90" width="115.0" height="24" rx="4" fill="#2563EB"/>
+<text class="v" x="620" y="107">48.60 s</text>
+<text class="l" x="16" y="143">DeepSeek (Ollama)</text>
+<rect x="200" y="126" width="410" height="24" rx="4" fill="#e8ecea"/>
+<rect x="200" y="126" width="410.0" height="24" rx="4" fill="#0891B2"/>
+<text class="v" x="620" y="143">173.31 s</text>
+<text class="l" x="16" y="179">Gemma (Ollama)</text>
+<rect x="200" y="162" width="410" height="24" rx="4" fill="#e8ecea"/>
+<rect x="200" y="162" width="130.9" height="24" rx="4" fill="#C026D3"/>
+<text class="v" x="620" y="179">55.32 s</text>
+</svg>

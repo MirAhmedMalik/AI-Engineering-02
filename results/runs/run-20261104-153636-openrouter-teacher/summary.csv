@@ -1,0 +1,5 @@
+model,model_id,backend,category,move_limit,trials,solved,success_rate,avg_latency_ms,median_latency_ms,p95_latency_ms,avg_live_latency_ms,avg_cache_response_ms,live_moves,cached_moves,api_calls,cache_hits,failed_requests,avg_decision_ms,avg_total_time_s,sum_total_time_s,avg_solved_time_s,avg_moves,total_moves,avg_moves_solved,mean_gap,gap_kind,optimal_solves,invalid_outputs,timeouts,http_errors,retries,avg_confidence,cost_usd
+,typesafe/jev-1.13,openrouter,decision,20,1,0,0.0,766.8,651.2,913.4,766.8,,20,0,20,0,0,772.3,15.45,15.45,,20.0,20,,,exact,0,0,0,0,0,0.281,0.000926
+,openai/gpt-6-luna-decisions,openrouter,decision,20,1,0,0.0,649.4,495.2,1241.3,582.0,1.487,10,1,12,1,2,534.7,7.93,7.93,,11.0,11,,,exact,0,0,0,2,1,0.261,0.000731
+,cloudflare/clef,openrouter,decision,20,1,0,0.0,1281.0,1210.8,2231.3,1281.0,,20,0,20,0,0,1291.1,25.83,25.83,,20.0,20,,,exact,0,0,0,0,0,0.021,0.004108
+,anthropic/claude-haiku-5.5,openrouter,llm,5,1,0,0.0,6753.3,7002.4,7115.8,6753.3,,4,0,5,0,1,9764.5,39.06,39.06,,4.0,4,,,exact,0,0,0,1,1,,0.002104
